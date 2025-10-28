@@ -13,13 +13,15 @@
         @keypress.enter="goMeteo"
       />
     </div>
-    <div class="w-75 m-auto" v-if="temps">
-      <h3 class="text-center mb-3">Position: {{ temps.name }}</h3>
-      <div class="card text-center p-5">
-        <p class="texte-affichage">Temperature : {{ temps.main.temp }}°C</p>
-        <p class="texte-affichage">
-          Temps : {{ temps.weather[0].description }}
-        </p>
+    <div class="display-fix">
+      <div class="w-75 m-auto" v-if="temps">
+        <h3 class="text-center mb-3">Position: {{ temps.name }}</h3>
+        <div class="card text-center p-5">
+          <p class="texte-affichage">Temperature : {{ temps.main.temp }}°C</p>
+          <p class="texte-affichage">
+            Temps : {{ temps.weather[0].description }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -62,5 +64,13 @@ export default {
   font-size: 40px;
   font-weight: 300;
   line-height: 1.2;
+}
+.display-fix {
+  min-height: 290px;
+}
+@media screen and (max-width: 1200px) {
+  .display-fix {
+    min-height: 60px !important;
+  }
 }
 </style>
